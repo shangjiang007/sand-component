@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+	xmlns="http://www.sandpay.com.cn/schema/pm" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:tool="http://www.springframework.org/schema/tool" 
+	targetNamespace="http://www.sandpay.com.cn/schema/pm"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool-2.5.xsd"
+	version="2.1">
+
+	<xsd:import namespace="http://www.springframework.org/schema/beans" />
+	<xsd:import namespace="http://www.springframework.org/schema/tool" />
+
+	<xsd:annotation>
+		<xsd:documentation><![CDATA[
+	定义配置.
+		]]></xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="step">
+		<xsd:annotation>
+			<xsd:documentation>
+				定义一个step.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="stepType">
+					<xsd:attribute name="id" type="xsd:ID" use="required" />
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="flow">
+		<xsd:annotation>
+			<xsd:documentation>
+				定义一个flow.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="description" type="description" minOccurs="0" />
+				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+					<xsd:group ref="flowGroup" />
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:group name="flowGroup">
+		<xsd:choice>
+			<xsd:element name="step">
+				<xsd:annotation>
+					<xsd:documentation>
+						定义一个flowGroup.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="stepType">
+							<xsd:attribute name="id" type="xsd:ID" use="required" />
+							<xsd:attributeGroup ref="nextAttribute" />
+							<xsd:attributeGroup ref="paramsAttribute" />
+							<xsd:attributeGroup ref="returnsAttribute" />
+							<xsd:attributeGroup ref="routeAttribute" />
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="decision">
+				<xsd:annotation>
+					<xsd:documentation>
+						声明一个decider.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:group ref="transitions" minOccurs="0" maxOccurs="unbounded" />
+					<xsd:attribute name="id" type="xsd:ID" use="required" />
+					<xsd:attribute name="decider" type="xsd:string" use="required">
+						<xsd:annotation>
+							<xsd:documentation>
+								The decider is a reference to a
+								JobExecutionDecider that can produce a status to base
+								the next
+								transition on.
+							</xsd:documentation>
+							<xsd:appinfo>
+								<tool:annotation kind="ref">
+									<tool:expected-type type="cn.com.sandpay.processmanager.core.job.flow.JobExecutionDecider" />
+								</tool:annotation>
+							</xsd:appinfo>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+	</xsd:group>
+	
+	<xsd:complexType name="stepType">
+		<xsd:sequence>
+			<xsd:element name="description" type="description" minOccurs="0" />
+			<xsd:choice minOccurs="0" maxOccurs="1">
+				<xsd:choice>
+					<xsd:element name="tasklet" type="taskletType" />
+					<!-- custom namespace tasklet declaration -->
+					<xsd:any namespace="##other" minOccurs="1" maxOccurs="1" processContents="skip"/>
+				</xsd:choice>
+			</xsd:choice>
+			<xsd:group ref="transitions" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:attributeGroup name="nextAttribute">
+		<xsd:attribute name="next" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation><![CDATA[
+				A shortcut for specifying the next step to execute after this one, if there is only one choice.    The next
+				attribute is a synonym for &lt;next on="*"/&gt; plus &lt;fail on="FAILED"/&gt; in a transition.
+				If this attribute is specified, then there should be no nested transition elements]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	
+	<xsd:attributeGroup name="paramsAttribute">
+		<xsd:attribute name="params" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation><![CDATA[
+				A shortcut for specifying the next step to execute after this one, if there is only one choice.    The next
+				attribute is a synonym for &lt;next on="*"/&gt; plus &lt;fail on="FAILED"/&gt; in a transition.
+				If this attribute is specified, then there should be no nested transition elements]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	
+	<xsd:attributeGroup name="returnsAttribute">
+		<xsd:attribute name="returns" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation><![CDATA[
+				A shortcut for specifying the next step to execute after this one, if there is only one choice.    The next
+				attribute is a synonym for &lt;next on="*"/&gt; plus &lt;fail on="FAILED"/&gt; in a transition.
+				If this attribute is specified, then there should be no nested transition elements]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	
+	<xsd:attributeGroup name="routeAttribute">
+		<xsd:attribute name="route" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation><![CDATA[
+				A shortcut for specifying the next step to execute after this one, if there is only one choice.    The next
+				attribute is a synonym for &lt;next on="*"/&gt; plus &lt;fail on="FAILED"/&gt; in a transition.
+				If this attribute is specified, then there should be no nested transition elements]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	
+	<xsd:complexType name="taskletType">
+		<xsd:all>
+			<xsd:element ref="beans:bean" minOccurs="0" maxOccurs="1" />
+			<xsd:element ref="beans:ref" minOccurs="0" maxOccurs="1" />
+		</xsd:all>
+		<xsd:attribute name="ref" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					The tasklet is a reference to another bean
+					definition that implements
+					the Tasklet interface.
+				</xsd:documentation>
+				<xsd:appinfo>
+					<tool:annotation kind="ref" />
+				</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:group name="transitions">
+		<xsd:choice>
+			<xsd:element name="next">
+				<xsd:annotation>
+					<xsd:documentation>
+						Defines a transition from this step to the
+						next
+						one depending on the value of the exit
+						status.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:attribute name="on" type="xsd:string" use="required">
+						<xsd:annotation>
+							<xsd:documentation>A pattern to match against the exit status
+								code. Use * and ? as wildcard characters. When a
+								step finishes
+								the most
+								specific match will be chosen to select the next step.
+								Hint:
+								always include a default
+								transition with on=&quot;*&quot;.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="to" type="xsd:string" use="required">
+						<xsd:annotation>
+							<xsd:documentation>
+								The name of the step to go to next. Must
+								resolve to one of the other steps in this job.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+	</xsd:group>
+
+	<xsd:simpleType name="description">
+		<xsd:annotation>
+			<xsd:documentation><![CDATA[
+	Contains informative text describing the purpose of the enclosing element.
+	Used primarily for user documentation of XML bean definition documents.
+			]]></xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string" />
+	</xsd:simpleType>
+
+</xsd:schema>

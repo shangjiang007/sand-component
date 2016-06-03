@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<template id="1.0.0-Mc.pay.queryBalance0105" desc="账号类余额查询">
+		<field id="encoding" 		desc="编码方式"			verify="true" 	type="string"	isNull="false" 	size="" 		errorMsg="cannot null"/>
+		<field id="signature" 		desc="签名" 			verify="true"	type="string"	isNull="false" 	size="" 		errorMsg="cannot null"/>
+		<field id="signMethod" 		desc="签名方法" 		verify="true"	type="string"	isNull="false" 	size="2" 		errorMsg="cannot null or length must 2"/>
+		<field id="txnType" 		desc="交易类型" 		verify="true"	type="string"	isNull="false" 	size="2" 		errorMsg="cannot null or length must 2"/>
+		<field id="txnSubType" 		desc="交易子类" 		verify="true"	type="string"	isNull="false" 	size="2" 		errorMsg="cannot null or length must 2"/>
+		<field id="payMode" 		desc="支付方式" 		verify="true"	type="string"	isNull="false" 	size="2" 		errorMsg="cannot null or length must 2"/>
+		<field id="payTool" 		desc="支付工具" 		verify="true"	type="string"	isNull="false" 	size="4" 		errorMsg="cannot null or length must 4"/>
+		<field id="productCode" 	desc="产品编号" 		verify="true"	type="string"	isNull="false" 	size="6" 		errorMsg="cannot null or length must 6"/>
+		<field id="channelType" 	desc="渠道类型" 		verify="true"	type="string"	isNull="false" 	size="2" 		errorMsg="cannot null or length must 2"/>
+		<field id="accessType" 		desc="接入类型" 		verify="true"	type="string"	isNull="false" 	size="1" 		errorMsg="cannot null or length must 1"/>
+		<field id="accessMid" 		desc="商户代码" 		verify="true"	type="string"	isNull="false" 	size="15" 		errorMsg="cannot null or length must 15"/>
+		<field id="orderCode" 		desc="商户订单号" 		verify="false"	type="string"	isNull="true" 	size="" 	errorMsg=""/>
+		<field id="currencyCode" 	desc="交易币种" 		verify="true"	type="string"	isNull="false" 	size="3" 		errorMsg="cannot null or length must 3"/>
+		<field id="mName" 			desc="商户名称" 		verify="false"	type="string"	isNull="true" 	size="" 		errorMsg=""/>
+		<field id="mAddr" 			desc="商户简称" 		verify="false"	type="string"	isNull="true" 	size="" 		errorMsg=""/>
+		<field id="accType" 		desc="账号类型" 		verify="true"	type="string"	isNull="false" 	size="2" 		errorMsg="cannot null or length must 2"/>
+		<field id="accNo" 			desc="账号" 			verify="true"	type="string"	isNull="false" 	size="1,60" 	errorMsg="cannot null or length must between 1 and 60"/>
+		<field id="acqInsCode" 		desc="收单机构代码" 	verify="true"	type="string"	isNull="false" 	size="1,20" 	errorMsg="cannot null or length must between 1 and 20"/>
+		<field id="acqInsInfo" 		desc="收单机构信息域" 	verify="false"	type="string"	isNull="false" 	size="" 	errorMsg=""/>
+		<field id="termId" 			desc="终端号" 			verify="false"	type="string"	isNull="true" 	size="" 		errorMsg=""/>
+		<field id="reqReserved" 	desc="请求方保留域" 	verify="false"	type="string"	isNull="true" 	size="" 		errorMsg=""/>
+		<field id="reserved" 		desc="保留域" 			verify="false"	type="string"	isNull="true" 	size="" 		errorMsg=""/>
+		<field id="cardTransData" 	desc="有卡交易信息域" 	verify="false"	type="string"	isNull="false" 	size="" 		errorMsg=""/>
+		<field id="customerInfo" 	desc="卡验证信息及身份信息" 	verify="false"	type="string"	isNull="false" 	size="" 		errorMsg=""/>
+	</template>
+	<template id="1.0.0-Mc.pay.queryBalance0108" desc="用户余额查询">
+		<field id="encoding" 		desc="编码方式"			verify="true" 	type="string"	isNull="false" 	size="" 		errorMsg="cannot null"/>
+		<field id="signature" 		desc="签名" 			verify="true"	type="string"	isNull="false" 	size="" 		errorMsg="cannot null"/>
+		<field id="signMethod" 		desc="签名方法" 		verify="true"	type="string"	isNull="false" 	size="2" 		errorMsg="cannot null or length must 2"/>
+		<field id="txnType" 		desc="交易类型" 		verify="true"	type="string"	isNull="false" 	size="2" 		errorMsg="cannot null or length must 2"/>
+		<field id="txnSubType" 		desc="交易子类" 		verify="true"	type="string"	isNull="false" 	size="2" 		errorMsg="cannot null or length must 2"/>
+		<field id="payMode" 		desc="支付方式" 		verify="true"	type="string"	isNull="false" 	size="2" 		errorMsg="cannot null or length must 2"/>
+		<field id="payTool" 		desc="支付工具" 		verify="true"	type="string"	isNull="false" 	size="4" 		errorMsg="cannot null or length must 4"/>
+		<field id="productCode" 	desc="产品编号" 		verify="true"	type="string"	isNull="false" 	size="6" 		errorMsg="cannot null or length must 6"/>
+		<field id="channelType" 	desc="渠道类型" 		verify="true"	type="string"	isNull="false" 	size="2" 		errorMsg="cannot null or length must 2"/>
+		<field id="accessType" 		desc="接入类型" 		verify="true"	type="string"	isNull="false" 	size="1" 		errorMsg="cannot null or length must 1"/>
+		<field id="accessMid" 		desc="商户代码" 		verify="true"	type="string"	isNull="false" 	size="15" 		errorMsg="cannot null or length must 15"/>
+		<field id="orderCode" 		desc="商户订单号" 		verify="false"	type="string"	isNull="true" 	size="" 	errorMsg=""/>
+		<field id="currencyCode" 	desc="交易币种" 		verify="true"	type="string"	isNull="false" 	size="3" 		errorMsg="cannot null or length must 3"/>
+		<field id="mName" 			desc="商户名称" 		verify="false"	type="string"	isNull="true" 	size="" 		errorMsg=""/>
+		<field id="mAddr" 			desc="商户简称" 		verify="false"	type="string"	isNull="true" 	size="" 		errorMsg=""/>
+		<field id="userId" 		desc="用户编号" 		verify="true"	type="string"	isNull="false" 	size="" 		errorMsg="cannot null"/>
+		<field id="acqInsCode" 		desc="收单机构代码" 	verify="true"	type="string"	isNull="false" 	size="1,20" 	errorMsg="cannot null or length must between 1 and 20"/>
+		<field id="acqInsInfo" 		desc="收单机构信息域" 	verify="false"	type="string"	isNull="false" 	size="" 	errorMsg=""/>
+		<field id="termId" 			desc="终端号" 			verify="false"	type="string"	isNull="true" 	size="" 		errorMsg=""/>
+		<field id="reqReserved" 	desc="请求方保留域" 	verify="false"	type="string"	isNull="true" 	size="" 		errorMsg=""/>
+		<field id="reserved" 		desc="保留域" 			verify="false"	type="string"	isNull="true" 	size="" 		errorMsg=""/>
+		<field id="cardTransData" 	desc="有卡交易信息域" 	verify="false"	type="string"	isNull="false" 	size="" 		errorMsg=""/>
+		<field id="customerInfo" 	desc="卡验证信息及身份信息" 	verify="false"	type="string"	isNull="false" 	size="" 		errorMsg=""/>
+	</template>
+</templates>

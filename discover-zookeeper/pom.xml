@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.com.sand.component</groupId>
+		<artifactId>sand-component</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>cn.com.sand.component</groupId>
+	<artifactId>discover-zookeeper</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>discover-zookeeper</name>
+	<properties>
+		<curator.version>2.8.0</curator.version>
+		<commons.version>2.6</commons.version>
+		<fastjson>1.2.7</fastjson>
+		<archaius.core>0.6.0</archaius.core>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.curator</groupId>
+			<artifactId>curator-recipes</artifactId>
+			<version>${curator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson}</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.netflix.archaius</groupId>
+			<artifactId>archaius-core</artifactId>
+			<version>${archaius.core}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency> -->
+	</dependencies>
+	
+	<build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-assembly-plugin</artifactId>
+  			<version>2.2.1</version>
+  			<configuration>
+  			<descriptorRefs>  
+            <descriptorRef>jar-with-dependencies</descriptorRef>  
+          </descriptorRefs>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+</project>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<code_config>
+
+	<!-- 多渠道拒绝码 -->
+	<!-- <system id="MCREFUSECODE">
+		<code errorCode="00010001" errorMsg="通讯协议错误" 	localErrorCode="00010001" localErrorMsg="通讯协议错误(版本信息)"/>
+		<code errorCode="00010001" errorMsg="通讯协议错误" 	localErrorCode="00010002" localErrorMsg="通讯协议错误(通讯方式)"/>
+		<code errorCode="00010001" errorMsg="通讯协议错误" 	localErrorCode="00010003" localErrorMsg="通讯协议错误(协议控制标识)"/>
+		<code errorCode="00010001" errorMsg="通讯协议错误" 	localErrorCode="00010004" localErrorMsg="通讯协议错误(数据组织方式)"/>
+		<code errorCode="00010001" errorMsg="通讯协议错误" 	localErrorCode="00010005" localErrorMsg="通讯协议错误(报文校验值)"/>
+		<code errorCode="00010001" errorMsg="通讯协议错误" 	localErrorCode="00010006" localErrorMsg="通讯协议错误(业务实现类型)"/>
+		<code errorCode="00020001" errorMsg="交易代码错误" 	localErrorCode="00020001" localErrorMsg="交易代码错误"/>
+		<code errorCode="00020002" errorMsg="接入机构错误" 	localErrorCode="00020002" localErrorMsg="接入机构号不存在"/>
+		<code errorCode="00020002" errorMsg="接入机构错误" 	localErrorCode="00020003" localErrorMsg="接入机构号无访问权限"/>
+		<code errorCode="00020003" errorMsg="身份认证失败" 	localErrorCode="00020004" localErrorMsg="身份认证失败"/>
+		<code errorCode="00020004" errorMsg="请求IP非法"  	localErrorCode="00020005" localErrorMsg="请求IP非法"/>
+		<code errorCode="00020005" errorMsg="签名未验证通过"   localErrorCode="00020006" localErrorMsg="签名未验证通过"/>
+		<code errorCode="00020006" errorMsg="报文校验未通过"   localErrorCode="00020007" localErrorMsg="报文校验未通过"/>
+	</system> -->
+	
+	<!-- 多渠道内部应答码:200001－209999属于系统级别，210000-219999属于多渠道内部业务级别，220000-229999属于第三方系统级别 -->
+	<system id="MCRESPONSECODE">
+		<!--系统级别-->
+		<code errorCode="000000"	 errorMsg="成功" 										localErrorCode="00000000"	   localErrorMsg="成功"/>
+		<code errorCode="200001"     errorMsg="系统内部异常" 	                            localErrorCode="20000001"      localErrorMsg=""/><!--捕获系统内部异常信息-->
+		<code errorCode="200002"     errorMsg="系统内部响应超时"                            localErrorCode="20000002"      localErrorMsg="interceMain响应超时"/>
+		<code errorCode="200002"     errorMsg="系统内部响应超时"                            localErrorCode="20000003"      localErrorMsg="payMain响应超时"/>
+		<code errorCode="200002"     errorMsg="系统内部响应超时"                            localErrorCode="20000004"      localErrorMsg="gatewayMain响应超时"/>
+		<code errorCode="200003"     errorMsg="服务不支持" 	                                localErrorCode="20000005"      localErrorMsg="主机服务不存在"/>
+		<code errorCode="200004"     errorMsg="签名验签不通过"                              localErrorCode="20000006"      localErrorMsg="签名验签不通过"/>
+		<code errorCode="200005"     errorMsg="数据库错误"                              	localErrorCode="20000007"      localErrorMsg="数据库错误"/>
+		<code errorCode="200006"     errorMsg="系统异常,请稍后再试"                          localErrorCode="20000008"      localErrorMsg="系统异常"/>
+		<code errorCode="209999"     errorMsg="报文异常" 		                            localErrorCode="20009999"      localErrorMsg="报文异常"/>
+
+		<!--多渠道内部业务级别-->
+		<code errorCode="210000"     errorMsg="请求参数不合法"                              localErrorCode="21000000"      localErrorMsg="交易类型不存在"/>
+		<code errorCode="210000"     errorMsg="请求参数不合法"                              localErrorCode="21000001"      localErrorMsg="交易子类不存在"/>
+		<code errorCode="210001"     errorMsg="报文校验未通过"                              localErrorCode="21000002"      localErrorMsg="报文校验未通过"/>
+		<code errorCode="210002"     errorMsg="请求IP非法"   	                            localErrorCode="21000003"      localErrorMsg="请求IP非法"/>
+		<code errorCode="210003"     errorMsg="交易代码错误" 	                            localErrorCode="21000004"      localErrorMsg="交易代码错误"/>
+		<code errorCode="210004"     errorMsg="订单信息异常" 	                            localErrorCode="21000005"      localErrorMsg="商户订单号不能未空"/>
+		<code errorCode="210004"     errorMsg="订单已支付成功"                              localErrorCode="21000006"      localErrorMsg="订单已支付成功"/>
+		<code errorCode="210000"     errorMsg="请求参数不合法"                              localErrorCode="21000007"      localErrorMsg="分单序号非法"/>
+		<code errorCode="210005"     errorMsg="支付流水不存在"                              localErrorCode="21000008"      localErrorMsg="支付流水不存在"/>
+		<code errorCode="210006"     errorMsg="支付流水不唯一"                              localErrorCode="21000009"      localErrorMsg="支付流水不唯一"/>
+		<code errorCode="210007"     errorMsg="订单流水表订单不存在"                        localErrorCode="21000011"      localErrorMsg="订单流水表订单不存在"/>
+		<code errorCode="210008"     errorMsg="订单已经超时"                                localErrorCode="21000012"      localErrorMsg="订单已经超时"/>
+		<code errorCode="210009"     errorMsg="数据库操作异常"                              localErrorCode="21000010"      localErrorMsg="更新支付流水支付状态异常"/>
+		<code errorCode="210009"     errorMsg="数据库操作异常"                              localErrorCode="21000013"      localErrorMsg="更新订单流水支付状态异常"/>
+		<code errorCode="210009"     errorMsg="数据库操作异常"                              localErrorCode="21000014"      localErrorMsg="更新日志流水异常"/>
+		<code errorCode="210009"     errorMsg="数据库操作异常"                              localErrorCode="21000015"      localErrorMsg="创建日志流水异常"/>
+		<code errorCode="210009"     errorMsg="数据库操作异常"                              localErrorCode="21000016"      localErrorMsg="创建支付流水异常"/>
+		<code errorCode="210009"     errorMsg="数据库操作异常"                              localErrorCode="21000017"      localErrorMsg="创建订单流水异常"/>
+		<code errorCode="210010"     errorMsg="订单异创建"                             	    localErrorCode="21000018"      localErrorMsg="该订单已创建"/>
+		<code errorCode="210011"     errorMsg="通知金额不符合"                         		localErrorCode="21000019"      localErrorMsg="通知金额不符合"/>
+		<code errorCode="210011"     errorMsg="接入商户号或订单号为空"                      localErrorCode="21000020"      localErrorMsg="接入商户号或订单号为空"/>
+		<code errorCode="210012"     errorMsg="支付工具不匹配"                         		localErrorCode="21000021"      localErrorMsg="支付工具不匹配"/>
+		<code errorCode="210013"     errorMsg="收单机构信息异常"                         	localErrorCode="21000022"      localErrorMsg="收单机构信息异常"/>
+		<code errorCode="210014"     errorMsg="SMPS返回数据异常"                         	localErrorCode="21000023"      localErrorMsg="SMPS返回密码标识错误"/>
+		<code errorCode="210005"     errorMsg="支付流水不存在"                         		localErrorCode="21000024"      localErrorMsg="杉德宝面付支付时未找到原下单流水"/>
+		<code errorCode="210000"     errorMsg="请求参数不合法"                         		localErrorCode="21000025"      localErrorMsg="密码标志错误"/>
+		ERROR_MC_RESPONSE_SMPS_IS_NEED_PWD_ERROR
+
+
+		<code errorCode="200002" errorMsg="系统内部响应超时" 		localErrorCode="300101" localErrorMsg="sandcard系统内部响应超时"/>
+	</system>		
+		
+	<system id="SANDIFSRESPONSECODE">
+		<!--add by xuexiaobo 20151201 sandifs  -->
+		<code errorCode="000000" errorMsg="成功" 				localErrorCode="0000" localErrorMsg="成功"/>
+		<code errorCode="210001" errorMsg="报文校验未通过" 		localErrorCode="0001" localErrorMsg="交易类型非法"/>
+		<code errorCode="200005" errorMsg="数据库错误" 			localErrorCode="0002" localErrorMsg="数据库错误"/>
+		<code errorCode="210000" errorMsg="请求参数不合法" 		localErrorCode="0003" localErrorMsg="商户未受理卡种"/>
+		<code errorCode="210000" errorMsg="请求参数不合法" 		localErrorCode="0004" localErrorMsg="卡类型数据未配置"/>
+		<code errorCode="210000" errorMsg="请求参数不合法" 		localErrorCode="0005" localErrorMsg="渠道不受理该卡种"/>
+		<code errorCode="210000" errorMsg="请求参数不合法" 		localErrorCode="0006" localErrorMsg="卡受理查询失败"/>
+	</system>
+
+	<system id="SASRESPONSECODE">
+		<!-- 221000-221999属于sas -->
+		<code errorCode="000000" errorMsg="成功" 				localErrorCode="000000" localErrorMsg="成功"/>
+		<code errorCode="221001" errorMsg="数据格式错误" 		localErrorCode="000001" localErrorMsg="数据格式错误"/>
+		<code errorCode="221002" errorMsg="计算HMAC错误" 		localErrorCode="000002" localErrorMsg="计算HMAC错误"/>
+		<code errorCode="221003" errorMsg="系统处理错误" 		localErrorCode="000003" localErrorMsg="系统处理错误"/>
+		<code errorCode="221004" errorMsg="缓存处理错误" 		localErrorCode="000004" localErrorMsg="缓存处理错误"/>
+		<code errorCode="221005" errorMsg="无效访问" 			localErrorCode="000005" localErrorMsg="无效访问"/>
+		<code errorCode="221006" errorMsg="渠道验证算法非法" 	localErrorCode="000006" localErrorMsg="渠道验证算法非法"/>
+		<code errorCode="221007" errorMsg="报文为空" 			localErrorCode="000007" localErrorMsg="报文为空"/>
+		<code errorCode="221008" errorMsg="未能获取渠道密钥" 	localErrorCode="000008" localErrorMsg="未能获取渠道密钥"/>
+		<code errorCode="221009" errorMsg="签名未通过" 			localErrorCode="000009" localErrorMsg="签名未通过"/>
+		<code errorCode="221010" errorMsg="密钥转换错误" 		localErrorCode="000010" localErrorMsg="密钥转换错误"/>
+		<code errorCode="221011" errorMsg="密钥转换错误" 		localErrorCode="000011" localErrorMsg="未获取配置信息"/>
+		<code errorCode="221012" errorMsg="密钥转换错误" 		localErrorCode="000012" localErrorMsg="TOKEN不匹配"/>
+		<code errorCode="221013" errorMsg="密钥转换错误" 		localErrorCode="000013" localErrorMsg="密钥索引没找到"/>
+		<code errorCode="221014" errorMsg="密钥转换错误" 		localErrorCode="000014" localErrorMsg="mongodb出错"/>
+		<code errorCode="221015" errorMsg="密钥转换错误" 		localErrorCode="000015" localErrorMsg="GET MAC2 ERROR"/>
+		<code errorCode="221017" errorMsg="密钥转换错误" 		localErrorCode="000017" localErrorMsg="交换渠道密钥出错"/>
+		<code errorCode="221018" errorMsg="密钥转换错误" 		localErrorCode="000018" localErrorMsg="rsa私钥解密出错"/>
+	</system>
+	
+	<system id="SANDCARDRESPONSECODE">
+		<code errorCode="000000" errorMsg="成功" 				localErrorCode="300000" localErrorMsg="成功"/>
+		<!-- 222000-222999属于sandcard -->
+		<code errorCode="222001" errorMsg="通讯报文错误" 		localErrorCode="300401" localErrorMsg="通讯报文错误"/>
+		<code errorCode="222002" errorMsg="不支持该交易" 		localErrorCode="300156" localErrorMsg="不支持该交易"/>
+		<code errorCode="000000" errorMsg="重复开通" 			localErrorCode="300415" localErrorMsg="重复开通"/>
+		<code errorCode="222003" errorMsg="重复交易" 			localErrorCode="300133" localErrorMsg="重复交易"/>
+		<code errorCode="222004" errorMsg="系统错误" 							localErrorCode="300001" localErrorMsg="系统错误"/>
+		<code errorCode="222005" errorMsg="后台数据错误" 						localErrorCode="300102" localErrorMsg="数据库错误"/>
+		<code errorCode="222006" errorMsg="查无此卡" 							localErrorCode="300110" localErrorMsg="查无此卡"/>
+		<code errorCode="222007" errorMsg="坏卡" 							localErrorCode="300113" localErrorMsg="坏卡"/>
+		<code errorCode="222008" errorMsg="遗失卡" 							localErrorCode="300120" localErrorMsg="遗失卡"/>
+		<code errorCode="222009" errorMsg="此卡为待售卡,请联系杉德客服人员" 		localErrorCode="300122" localErrorMsg="此卡为待售卡,请联系杉德客服人员"/>
+		<code errorCode="222010" errorMsg="无效账户" 							localErrorCode="300123" localErrorMsg="无效账户"/>
+		<code errorCode="222011" errorMsg="用户密码错误" 						localErrorCode="300135" localErrorMsg="用户密码错误"/>
+		<code errorCode="222012" errorMsg="先改密" 							localErrorCode="300139" localErrorMsg="先改密"/>
+		<code errorCode="222013" errorMsg="该卡当天被冻结" 					localErrorCode="300157" localErrorMsg="该卡当天被冻结"/>
+		<code errorCode="222014" errorMsg="已激活" 							localErrorCode="300182" localErrorMsg="已激活"/>
+		<code errorCode="222015" errorMsg="单笔金额超限" 						localErrorCode="300200" localErrorMsg="单笔金额超限"/>
+		<code errorCode="222016" errorMsg="余额不足" 							localErrorCode="300220" localErrorMsg="余额不足"/>
+		<code errorCode="222017" errorMsg="累计金额额度超限" 					localErrorCode="300222" localErrorMsg="累计金额额度超限"/>
+		<code errorCode="222018" errorMsg="通讯报文错误" 						localErrorCode="300301" localErrorMsg="通讯报文错误"/>
+		<code errorCode="222019" errorMsg="数据库里没有符合条件数据" 			localErrorCode="300303" localErrorMsg="数据库里没有符合条件数据"/>
+		<code errorCode="222020" errorMsg="内存申请失败" 						localErrorCode="300402" localErrorMsg="内存申请失败"/>
+		<code errorCode="222021" errorMsg="数据库里没有符合条件数据" 			localErrorCode="300403" localErrorMsg="数据库里没有符合条件数据"/>
+		<code errorCode="222022" errorMsg="已超每日消费额" 					localErrorCode="300404" localErrorMsg="已超每日消费额"/>
+		<code errorCode="222023" errorMsg="该卡未激活" 						localErrorCode="300405" localErrorMsg="该卡未激活"/>
+		<code errorCode="222024" errorMsg="解通讯包错误" 						localErrorCode="300406" localErrorMsg="解通讯包错误"/>
+		<code errorCode="222025" errorMsg="账户已存在" 						localErrorCode="300414" localErrorMsg="账户已存在"/>
+	</system>
+
+	<system id="UMSRESPONSECODE">
+		<!-- 223000-223999属于ums -->
+		<code errorCode="000000" errorMsg="成功" 				localErrorCode="31X000" 	localErrorMsg="成功"/>
+		<code errorCode="223000" errorMsg="报文格式错误" 		localErrorCode="31X001"   	localErrorMsg="报文格式错误" />
+		<code errorCode="223001" errorMsg="签名信息错误" 		localErrorCode="31X002"   	localErrorMsg="签名信息错误" />
+		<code errorCode="223002" errorMsg="设备认证错误" 		localErrorCode="31X003"   localErrorMsg="设备认证错误" />
+		<code errorCode="223003" errorMsg="渠道认证错误" 		localErrorCode="31X004"   localErrorMsg="渠道认证错误" />
+		<code errorCode="223004" errorMsg="接口名称不存在" 		localErrorCode="31X005"   localErrorMsg="接口名称不存在" />
+		<code errorCode="223005" errorMsg="报文域不能为空" 		localErrorCode="31X006"   localErrorMsg="报文域不能为空" />
+		<code errorCode="223006" errorMsg="报文域长度不足" 		localErrorCode="31X007"   localErrorMsg="报文域长度不足" />
+		<code errorCode="223007" errorMsg="通讯异常" 			localErrorCode="31X008"   localErrorMsg="通讯异常" />
+		<code errorCode="223008" errorMsg="改产品暂时不支持用户账号密码管理" localErrorCode="31X009"   localErrorMsg="改产品暂时不支持用户账号密码管理" />
+		<code errorCode="223009" errorMsg="系统异常" 			localErrorCode="32X999"   localErrorMsg="系统异常" />
+		<code errorCode="223010" errorMsg="用户不存在 " 		localErrorCode="31U001"   localErrorMsg="用户不存在" />
+		<code errorCode="223011" errorMsg="用户已被注销 " 		localErrorCode="31U002"   localErrorMsg="用户已被注销" />
+		<code errorCode="223012" errorMsg="用户未激活 " 		localErrorCode="31U003"   localErrorMsg="用户未激活" />
+		<code errorCode="223013" errorMsg="用户被锁定" 			localErrorCode="31U004"   localErrorMsg="用户被锁定" />
+		<code errorCode="223014" errorMsg="手机号已被使用 " 		localErrorCode="31U005"   localErrorMsg="手机号已被使用" />
+		<code errorCode="223015" errorMsg="邮箱已被使用 " 		localErrorCode="31U006"   localErrorMsg="邮箱已被使用" />
+		<code errorCode="223016" errorMsg="用户已注册" 			localErrorCode="31U007"   localErrorMsg="用户已注册" />
+		<code errorCode="223017" errorMsg="用户注册失败" 		localErrorCode="31U008"   localErrorMsg="用户注册失败" />
+		<code errorCode="223018" errorMsg="修改用户信息失败" 		localErrorCode="31U009"   localErrorMsg="修改用户信息失败" />
+		<code errorCode="223019" errorMsg="查询用户详细信息失败" 	localErrorCode="31U010"   localErrorMsg="查询用户详细信息失败" />
+		<code errorCode="223020" errorMsg="用户登录失败" 		localErrorCode="31U011"   localErrorMsg="用户登录失败" />
+		<code errorCode="223021" errorMsg="修改用户手机失败 " 	localErrorCode="31U012"   localErrorMsg="修改用户手机失败" />
+		<code errorCode="223022" errorMsg="修改用户邮箱失败" 		localErrorCode="31U013"   localErrorMsg="修改用户邮箱失败" />
+		<code errorCode="223023" errorMsg="修改用户密码失败" 		localErrorCode="31U014"   localErrorMsg="修改用户密码失败" />
+		<code errorCode="223024" errorMsg="获取手机短信码失败" 	localErrorCode="31U015"   localErrorMsg="获取手机短信码失败" />
+		<code errorCode="223025" errorMsg="用户密码错误" 		localErrorCode="31U016"   localErrorMsg="用户密码错误" />
+		<code errorCode="223026" errorMsg="用户旧密码错误" 		localErrorCode="31U017"   localErrorMsg="用户旧密码错误" />
+		<code errorCode="223027" errorMsg="用户名为手机号,不能修改手机号" localErrorCode="31U018"   localErrorMsg="用户名为手机号,不能修改手机号" />
+		<code errorCode="223028" errorMsg="用户名为邮箱,不能修改邮箱" localErrorCode="31U019"   localErrorMsg="用户名为邮箱,不能修改邮箱" />
+		<code errorCode="223029" errorMsg="短信码无效,请重新获取" localErrorCode="31U020"	  localErrorMsg="短信码无效,请重新获取" />
+		<code errorCode="223030" errorMsg="短信码错误,请重新获取" localErrorCode="31U021"	  localErrorMsg="短信码错误,请重新获取" />
+		<code errorCode="223031" errorMsg="用户手机号被修改" 		localErrorCode="31U022"   localErrorMsg="用户手机号被修改" />
+		<code errorCode="223032" errorMsg="用户名被修改" 		localErrorCode="31U023"   localErrorMsg="用户名被修改" />
+		<code errorCode="223033" errorMsg="用户业务失败 " 		localErrorCode="31U999"   localErrorMsg="用户业务失败" />
+		<code errorCode="223034" errorMsg="用户解锁失败" 		localErrorCode="31U024"   localErrorMsg="用户解锁失败" />
+		<code errorCode="223035" errorMsg="用户删除失败" 		localErrorCode="31U025"   localErrorMsg="用户删除失败" />
+		<code errorCode="223036" errorMsg="不是移动杉德卡用户 " 	localErrorCode="31U026"   localErrorMsg="不是移动杉德卡用户" />
+		<code errorCode="223037" errorMsg="密保设置失败" 		localErrorCode="31U027"   localErrorMsg="密保设置失败" />
+		<code errorCode="223038" errorMsg="密保验证失败" 		localErrorCode="31U028"   localErrorMsg="密保验证失败" />
+		<code errorCode="223039" errorMsg="头像设置失败" 		localErrorCode="31U029"   localErrorMsg="头像设置失败" />
+		<code errorCode="223040" errorMsg="用户被作废" 			localErrorCode="31U030"   localErrorMsg="用户被作废" />
+		<code errorCode="223041" errorMsg="修改用户状态失败" 		localErrorCode="31U031"   localErrorMsg="修改用户状态失败" />
+		<code errorCode="223042" errorMsg="修改用户手势密码失败" 	localErrorCode="31U032"   localErrorMsg="修改用户手势密码失败" />
+		<code errorCode="223043" errorMsg="修改用户手势密码状态失败" localErrorCode="31U033"  localErrorMsg="修改用户手势密码状态失败" />
+		<code errorCode="223044" errorMsg="企业用户信息操作失败" 	localErrorCode="31U034"   localErrorMsg="企业用户信息操作失败" />
+		<code errorCode="223045" errorMsg="企业账户绑定操作失败" 	localErrorCode="31U035"   localErrorMsg="企业账户绑定操作失败" />
+		<code errorCode="223046" errorMsg="批量开通业务失败" 		localErrorCode="31U036"   localErrorMsg="批量开通业务失败" />
+		<code errorCode="223047" errorMsg="商户信息已存在" 		localErrorCode="31U037"   localErrorMsg="商户信息已存在" />
+		<code errorCode="223048" errorMsg="用户名含有中文" 		localErrorCode="31U038"   localErrorMsg="用户名含有中文" />
+		<code errorCode="223049" errorMsg="修改账户状态失败" 		localErrorCode="31U039"   localErrorMsg="修改账户状态失败" />
+		<code errorCode="223050" errorMsg="添加帐户密码失败 " 	localErrorCode="31U040"   localErrorMsg="添加帐户密码失败" />
+		<code errorCode="223051" errorMsg="账户密码验证失败" 		localErrorCode="31U041"   localErrorMsg="账户密码验证失败" />
+		<code errorCode="223052" errorMsg="账户密码修改失败" 		localErrorCode="31U042"   localErrorMsg="账户密码修改失败" />
+		<code errorCode="223053" errorMsg="绑定银行卡信息失败" 	localErrorCode="31U043"   localErrorMsg="绑定银行卡信息失败" />
+		<code errorCode="223054" errorMsg="修改证件号/证件类型失败" localErrorCode="31U044"	  localErrorMsg="修改证件号/证件类型失败" />
+		<code errorCode="223055" errorMsg="修改绑定银行卡信息失败" 	localErrorCode="31U045"   localErrorMsg="修改绑定银行卡信息失败" />
+		<code errorCode="223056" errorMsg="修改用户扩展信息失败" 	localErrorCode="31U046"   localErrorMsg="修改用户扩展信息失败" />
+		<code errorCode="223057" errorMsg="注册密码过于简单" 		localErrorCode="31U047"   localErrorMsg="注册密码过于简单" />
+	</system>
+	
+	<system id="ABACUSRESPONSECODE">
+		<!-- 224000-224999属于abacus -->
+		<code errorCode="000000" errorMsg="成功" 		localErrorCode="000000"   localErrorMsg="成功" />
+		<code errorCode="224000" errorMsg="未知" 		localErrorCode="unknow"   localErrorMsg="未知" />
+		<code errorCode="224001" errorMsg="交易结果未知" 		localErrorCode="exception"   localErrorMsg="超时或内部系统异常" />
+		<code errorCode="224002" errorMsg="服务初始默认错误,业务处理中必须进行设置" 		localErrorCode="500000"   localErrorMsg="服务初始默认错误,业务处理中必须进行设置" />
+		<code errorCode="224003" errorMsg="验证请求报文错误" 		localErrorCode="500001"   localErrorMsg="验证请求报文错误" />
+		<code errorCode="224004" errorMsg="报文数据错误" 		localErrorCode="500002"   localErrorMsg="报文数据错误,详情：{} {}" />
+		<code errorCode="224005" errorMsg="服务路由异常或或者路由信息未配置" 		localErrorCode="500031"   localErrorMsg="服务路由异常或或者路由信息未配置: 描述->{}" />
+		<code errorCode="224006" errorMsg="服务初始化步骤异常或未按照要求做步骤初始化" 		localErrorCode="500032"   localErrorMsg="服务初始化步骤异常或未按照要求做步骤初始化:描述->{}" />
+		<code errorCode="224007" errorMsg="服务检查步骤异常或未按照要求做步骤检测" 		localErrorCode="500033"   localErrorMsg="服务检查步骤异常或未按照要求做步骤检测:描述->{}" />
+		<code errorCode="224008" errorMsg="服务处理步骤异常或未按照要求做步骤处理" 		localErrorCode="500034"   localErrorMsg="服务处理步骤异常或未按照要求做步骤处理:描述->{}" />
+		<code errorCode="224009" errorMsg="服务后处理步骤异常或未按照要求做步骤后处理" 		localErrorCode="500035"   localErrorMsg="服务后处理步骤异常或未按照要求做步骤后处理:描述->{}" />
+		<code errorCode="224010" errorMsg="服务默认初始化处理不通过" 		localErrorCode="500036"   localErrorMsg="服务默认初始化处理不通过" />
+		<code errorCode="224011" errorMsg="服务处理已经结束" 		localErrorCode="500037"   localErrorMsg="服务处理已经结束,控制标识{}" />
+		<code errorCode="224012" errorMsg="业务日志流水初始化失败" 		localErrorCode="500038"   localErrorMsg="业务日志流水ID:{} 初始化失败" />
+		<code errorCode="224013" errorMsg="非法路由参数" 		localErrorCode="500051"   localErrorMsg="非法路由参数:{}" />
+		<code errorCode="224014" errorMsg="未知路由异常" 		localErrorCode="500052"   localErrorMsg="未知路由异常:{}" />
+		<code errorCode="224015" errorMsg="业务流程重试失败" 		localErrorCode="500053"   localErrorMsg="业务流程重试失败" />
+		<code errorCode="224016" errorMsg="业务并发控制失败" 		localErrorCode="500054"   localErrorMsg="业务并发控制失败：获得锁信息：{}" />
+	</system>
+
+	<system id="MASFRONTRESPONSECODE">
+		<!-- 225000-225999属于masfront -->
+		<code errorCode="000000" errorMsg="成功" 										localErrorCode="00" 	localErrorMsg="成功"/>
+		<code errorCode="225001" errorMsg="查发卡行"                                	localErrorCode="01" 	localErrorMsg="查发卡行"/>
+		<code errorCode="225002" errorMsg="无效商户"                                	localErrorCode="03" 	localErrorMsg="无效商户"/>
+		<code errorCode="225003" errorMsg="没收卡"                                  	localErrorCode="04" 	localErrorMsg="没收卡"/>
+		<code errorCode="225004" errorMsg="不予承兑"                                	localErrorCode="05" 	localErrorMsg="不予承兑"/>
+		<code errorCode="225005" errorMsg="无效交易"                                	localErrorCode="12" 	localErrorMsg="无效交易"/>
+		<code errorCode="225006" errorMsg="无效金额"                                	localErrorCode="13" 	localErrorMsg="无效金额"/>
+		<code errorCode="225007" errorMsg="无效卡号"                                	localErrorCode="14" 	localErrorMsg="无效卡号"/>
+		<code errorCode="225008" errorMsg="无此发卡行"                              	localErrorCode="15" 	localErrorMsg="无此发卡行"/>
+		<code errorCode="225009" errorMsg="不做任何处理"                            	localErrorCode="21" 	localErrorMsg="不做任何处理"/>
+		<code errorCode="225010" errorMsg="怀疑操作有误"                            	localErrorCode="22" 	localErrorMsg="怀疑操作有误"/>
+		<code errorCode="225011" errorMsg="未能找到文件上记录"                      	localErrorCode="25" 	localErrorMsg="未能找到文件上记录"/>
+		<code errorCode="225012" errorMsg="格式错误"                                	localErrorCode="30" 	localErrorMsg="格式错误"/>
+		<code errorCode="225013" errorMsg="有作弊嫌疑"                              	localErrorCode="34" 	localErrorMsg="有作弊嫌疑"/>
+		<code errorCode="225014" errorMsg="超过允许的PIN试输入"                     	localErrorCode="38" 	localErrorMsg="超过允许的PIN试输入"/>
+		<code errorCode="225015" errorMsg="请求的功能尚不支持"                      	localErrorCode="40" 	localErrorMsg="请求的功能尚不支持"/>
+		<code errorCode="225016" errorMsg="丢失卡"                                  	localErrorCode="41" 	localErrorMsg="丢失卡"/>
+		<code errorCode="225017" errorMsg="被窃卡"                                  	localErrorCode="43" 	localErrorMsg="被窃卡"/>
+		<code errorCode="225018" errorMsg="无此投资账户"                            	localErrorCode="44" 	localErrorMsg="无此投资账户"/>
+		<code errorCode="225019" errorMsg="无足够的存款"                            	localErrorCode="51" 	localErrorMsg="无足够的存款"/>
+		<code errorCode="225020" errorMsg="过期的卡"                                	localErrorCode="54" 	localErrorMsg="过期的卡"/>
+		<code errorCode="225021" errorMsg="不正确的PIN"                             	localErrorCode="55" 	localErrorMsg="不正确的PIN"/>
+		<code errorCode="225022" errorMsg="无此卡记录"                              	localErrorCode="56" 	localErrorMsg="无此卡记录"/>
+		<code errorCode="225023" errorMsg="不允许持卡人进行的交易"                  	localErrorCode="57" 	localErrorMsg="不允许持卡人进行的交易"/>
+		<code errorCode="225024" errorMsg="不允许终端进行的交易"                    	localErrorCode="58" 	localErrorMsg="不允许终端进行的交易"/>
+		<code errorCode="225025" errorMsg="有作弊嫌疑"                              	localErrorCode="59" 	localErrorMsg="有作弊嫌疑"/>
+		<code errorCode="225026" errorMsg="超出取款金额限制"                        	localErrorCode="61" 	localErrorMsg="超出取款金额限制"/>
+		<code errorCode="225027" errorMsg="受限制的卡"                              	localErrorCode="62" 	localErrorMsg="受限制的卡"/>
+		<code errorCode="225028" errorMsg="原始金额不正确"                          	localErrorCode="64" 	localErrorMsg="原始金额不正确"/>
+		<code errorCode="225029" errorMsg="超出取款次数限制"                        	localErrorCode="65" 	localErrorMsg="超出取款次数限制"/>
+		<code errorCode="225030" errorMsg="收到的回答太迟"                          	localErrorCode="68" 	localErrorMsg="收到的回答太迟"/>
+		<code errorCode="225031" errorMsg="允许的输入PIN次数超限"                   	localErrorCode="75" 	localErrorMsg="允许的输入PIN次数超限"/>
+		<code errorCode="225032" errorMsg="日期切换正在处理"                        	localErrorCode="90" 	localErrorMsg="日期切换正在处理"/>
+		<code errorCode="225033" errorMsg="发卡行或银行不能操作"                    	localErrorCode="91" 	localErrorMsg="发卡行或银行不能操作"/>
+		<code errorCode="225034" errorMsg="金融机构或中间网络设施找不到或无法达到"  	localErrorCode="92" 	localErrorMsg="金融机构或中间网络设施找不到或无法达到"/>
+		<code errorCode="225035" errorMsg="重复交易"                                	localErrorCode="94" 	localErrorMsg="重复交易"/>
+		<code errorCode="225036" errorMsg="sand-数据库错误cups-系统异常，失效"      	localErrorCode="96" 	localErrorMsg="sand-数据库错误cups-系统异常，失效"/>
+		<code errorCode="225037" errorMsg="POS终端号找不到"                         	localErrorCode="97" 	localErrorMsg="POS终端号找不到"/>
+		<code errorCode="225038" errorMsg="银联收不到发卡行应答"                    	localErrorCode="98" 	localErrorMsg="银联收不到发卡行应答"/>
+		<code errorCode="225039" errorMsg="PIN格式错"                               	localErrorCode="99" 	localErrorMsg="PIN格式错"/>
+		<code errorCode="225040" errorMsg="MAC效验错"                               	localErrorCode="A0" 	localErrorMsg="MAC效验错"/>
+		<code errorCode="225041" errorMsg="转账货币不一致"                          	localErrorCode="A1" 	localErrorMsg="转账货币不一致"/>
+		<code errorCode="225042" errorMsg="资金到账行无此账户"                      	localErrorCode="A3" 	localErrorMsg="资金到账行无此账户"/>
+	</system>
+
+	<system id="VERIFICATIONRESPONSECODE">
+		<!-- 226000-226999属于核销平台 -->
+		<code errorCode="000000" errorMsg="成功" 											localErrorCode="000000" 	localErrorMsg="成功" />
+		<code errorCode="226000" errorMsg="非法的核销码"                                	localErrorCode="620002" 	localErrorMsg="非法的核销码（这个核销码是指不符合规则）"/>
+		<code errorCode="226000" errorMsg="核销类型不符"                                	localErrorCode="620003" 	localErrorMsg="核销类型不符"/>		
+		<code errorCode="226001" errorMsg="业务处理异常"                                	localErrorCode="620010" 	localErrorMsg="业务处理异常"/>
+		<code errorCode="226002" errorMsg="商终信息无效"                                  	localErrorCode="620011" 	localErrorMsg="商终信息无效"/>
+		<code errorCode="200006" errorMsg="系统异常,请稍后再试"                               localErrorCode="620012" 	localErrorMsg="请1分钟后再试"/>
+		<code errorCode="226004" errorMsg="非法核销码"                                		localErrorCode="620013" 	localErrorMsg="非法核销码（这个是指数据库中没有查到相对应的）"/>
+		<code errorCode="226005" errorMsg="核销码已作废"                                	localErrorCode="620014" 	localErrorMsg="核销码已作废"/>
+		<code errorCode="226006" errorMsg="核销码已使用"                                	localErrorCode="620015" 	localErrorMsg="核销码已使用"/>
+		<code errorCode="226007" errorMsg="商品不在使用范围"                              	localErrorCode="620016" 	localErrorMsg="商品不在使用范围"/>
+		<code errorCode="226008" errorMsg="非验证码使用时间"                            		localErrorCode="620017" 	localErrorMsg="非验证码使用时间"/>
+		<code errorCode="226009" errorMsg="验证码已过期"                            		localErrorCode="620018" 	localErrorMsg="验证码已过期"/>
+		<code errorCode="226010" errorMsg="无效的订单"                      				localErrorCode="620019" 	localErrorMsg="无效的订单"/>
+		<code errorCode="226011" errorMsg="渠道平台处理"                      				localErrorCode="600000" 	localErrorMsg="渠道平台处理"/>
+	</system>
+
+	<system id="BATRSPONSECODE">
+		<!-- 227000-227999属于bat -->
+		<code errorCode="227001" errorMsg="订单号重复"                      	localErrorCode="SER014" 	localErrorMsg="订单号重复"/>
+	</system>
+
+	<system id="SMPSRESPONSECODE">
+		<!-- 228000-228999属于smps -->
+		<code errorCode="000000" errorMsg="成功" 					localErrorCode="100000"   localErrorMsg="成功" />
+		<code errorCode="228001" errorMsg="SMPS系统异常"			localErrorCode="10SSSS"   localErrorMsg="未知" />
+		
+		<code errorCode="228002" errorMsg="订单轮询失败"			localErrorCode="10M019"   localErrorMsg="订单轮询失败" />
+		<code errorCode="228003" errorMsg="订单支付开始"			localErrorCode="10M026"   localErrorMsg="订单支付开始" />
+		<code errorCode="228004" errorMsg="订单初始化"				localErrorCode="10M027"   localErrorMsg="订单初始化" />
+		<code errorCode="228005" errorMsg="订单不存在"				localErrorCode="10M033"   localErrorMsg="订单不存在" />
+		
+	</system>
+</code_config>
